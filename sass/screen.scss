@@ -1,0 +1,205 @@
+// ---------------------------------------------------------------------------
+// Imports
+@import "compass/reset";
+
+@import "normalise";
+
+@import "base";
+
+/* -------------------------------------------------------------------------*/
+/* Layout */
+
+@include border-box-sizing;
+
+body {
+	@include at-breakpoint($tablet) {border-top: 5px solid black;};
+	background: url(../images/bg.jpg) repeat static;
+	font-family: "Sans Guilt", "Helvetica", Helvetica, Arial, sans-serif;
+	font-color:$primary;
+}
+
+.cont {
+	@include container; 
+	@include susy-grid-background;
+	}
+
+h1,h2,h3,h4,h5, div[role="navigation"] {
+	font-family: "Market Deco", "Helvetica", Helvetica, Arial, sans-serif;
+}
+
+a {
+	text-decoration:none;
+	color: $primary;
+}
+
+header {
+	@include span-columns($total-columns);
+	text-align:center;
+	margin-bottom:$gutter-width;
+	div[role="navigation"]{
+		ul {
+			@include span-columns($total-columns);
+			margin: 0px auto;
+			padding-top:3px;
+			li {
+				display:inline;
+				a {
+					padding:0px;
+					&:hover{
+						border: {
+							style:solid;
+							top: {
+								width: 2px;
+								color: $primary;
+							}
+							bottom: {
+								width: 1px;
+								color: $primary;
+							}
+						}
+						}
+				}
+			}
+		}
+	}
+	.logo-header {
+		@include span-columns($total-columns);
+		h1 {margin-bottom:0px;}
+		#logo {
+			margin-top:68px;
+			margin-bottom:68px;
+			@include span-columns($total-columns);
+		}
+	}
+}
+
+.content {
+	@include span-columns($total-columns);
+	section {
+		h1,h2,h3,h4,h5 {
+			text-align: center;
+			margin-bottom: 1em;
+			@include span-columns($total-columns);
+		}
+		.module-3 {
+			@include span-columns($total-columns);
+			margin-bottom:$gutter-width;
+			&:nth-child(3n) { @include omega; };
+			img {
+				@include span-columns(2,2);
+			}
+		}
+		.module-4 {
+			@include span-columns($total-columns);
+			margin-bottom:$gutter-width;
+			&:nth-child(4n) { @include omega; };
+			img {
+				@include span-columns(2,2);
+			}
+		}
+	}
+	section[role="banner"]{display:none; margin-bottom:$gutter-width;}
+	#banner {
+		@include span-columns($total-columns);
+	}
+}
+
+footer {
+	background-color:$primary;
+	color:$second;
+	@include span-columns($total-columns);
+	.widget {
+		@include span-columns($total-columns);
+		margin-bottom:$gutter-width;
+		&:nth-child(3n) { @include omega; };
+		h1,h2,h3,h4,h5 {
+			text-align: center;
+		}
+		p {padding: 5px;}
+		}
+}
+
+@include at-breakpoint(5) {
+	@include with-grid-settings($tablet,4em,1em,1em) {
+		.cont {
+			@include container; 
+			@include susy-grid-background;
+		}
+		header {
+			div[role="navigation"]{
+				ul {
+					li {
+						font-size:75%;
+					}
+				}
+			}
+			.logo-header {
+				@include span-columns($tablet);
+				.tagline {@include span-columns($tablet);}
+				#logo {
+					@include span-columns(2,$tablet);
+					margin:20px auto;
+					float:none;
+					clear:both;
+				}
+			}
+		}
+		.content {
+			section[role="banner"]{display:block;}
+			section {
+				@include span-columns($tablet);
+				.module-3 {
+					@include span-columns(2,$tablet);
+					
+				}
+				.module-4 {
+					@include span-columns(2,8);
+				}
+			}
+		}
+		footer {
+			@include span-columns($tablet);
+			.widget {
+				@include span-columns(2,$tablet);
+			}
+		}
+	}
+}
+
+@include at-breakpoint(9) {
+	@include with-grid-settings($screen,4em,1em,1em) {
+		.cont {
+			@include container; 
+			@include susy-grid-background;
+		}
+		header {
+			.logo-header {
+				@include span-columns($screen);
+				.tagline {@include span-columns($screen);}
+				#logo {
+					@include span-columns(4);
+					margin:40px auto;
+					float:none;
+					clear:both;
+				}
+			}
+		}
+		.content {
+			section {
+				@include span-columns($screen);
+				.module-3 {
+					@include span-columns(4,$screen);
+				}
+				.module-4 {
+					@include span-columns(3,$screen);
+				}
+			}
+		}
+		footer {
+			@include span-columns($screen);
+			.widget {
+				@include span-columns(4,$screen);
+			}
+		}
+	}
+}

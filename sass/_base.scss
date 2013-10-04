@@ -1,0 +1,40 @@
+// ---------------------------------------------------------------------------
+// Imports
+
+@import "susy";
+
+// ---------------------------------------------------------------------------
+// Basic Grid
+$tablet: 6;
+$screen: 12;
+$total-columns  : 4;
+$column-width   : 4em;
+$gutter-width   : 1em;
+$grid-padding   : 0;
+
+// ---------------------------------------------------------------------------
+// Font Families & Styles
+
+@font-face {
+   font-family: 'Market Deco'; 
+   src: url('../fonts/market_deco.eot'); 
+   src: url('../fonts/market_deco.eot?#iefix') format('embedded-opentype'), 
+        url('../fonts/market_deco.woff') format('woff'),
+        url('../fonts/market_deco.ttf') format('truetype'); 
+   font-weight: normal; 
+   font-style: normal; 
+}
+@font-face {
+   font-family: 'Sans Guilt'; 
+   src: url('../fonts/sansguiltmb.eot'); 
+   src: url('../fonts/sansguiltmb?#iefix') format('embedded-opentype'), 
+        url('../fonts/sansguiltmb.woff') format('woff'),
+        url('../fonts/sansguiltmb.ttf') format('truetype'); 
+   font-weight: normal; 
+   font-style: normal; 
+}
+$primary : #1c1c1c;
+$second : #e3e3e3;
+
+
+
